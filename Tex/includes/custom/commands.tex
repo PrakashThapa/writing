@@ -1,0 +1,34 @@
+\definecolor{darkgray}{gray}{0.35}
+\lstnewenvironment{fakeXML}[1][]{
+\lstset{basicstyle=\footnotesize\sffamily,
+linewidth=\linewidth,
+breaklines=true, 
+%numbers=left,
+%stepnumber=1,
+%numbersep=10pt,
+frame=single,
+framerule=1.0pt,
+%backgroundcolor=\color{darkgray},
+language=HTML,
+%identifierstyle=\color[rgb]{1,0,0},
+%emph={intersects}, emphstyle=\color{red},
+%keywordstyle=\color[rgb]{0,0,1},
+%commentstyle=\color[rgb]{0.133,0.545,0.133},
+%stringstyle=\color[rgb]{0.627,0.126,0.941},
+morekeywords={xml, ref, xs, version, targetNamespace, minOccurs, maxOccurs}
+}\lstset{#1}}{}
+
+\lstnewenvironment{fakeJSON}[1][]{
+	\lstset{
+		basicstyle=\footnotesize\sffamily,
+		linewidth=\linewidth,
+		breaklines=true,
+		%escapeinside={\%*}{*)}
+		%numbers=left,
+		%stepnumber=1,
+		%numbersep=10pt,
+		%frame=single,
+		%framerule=1.0pt,
+		language=HTML,
+		emph={}
+	}\lstset{#1}}{}

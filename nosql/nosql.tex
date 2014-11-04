@@ -1,0 +1,144 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{graphicx}
+\usepackage{titling}
+\usepackage{color}
+\newcommand{\subtitle}[1]{%
+  \posttitle{%
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip0.5em}%
+}
+%\usepackage[graphicx]{realboxes}
+\usepackage{color}
+\usepackage{rotating}
+\definecolor{light-gray}{gray}{0.80}
+\usepackage{url}
+\usepackage{listings}
+\usepackage[tight,footnotesize]{subfigure}  
+\usepackage[top=2cm, bottom=2cm, left=4cm, right=2cm]{geometry}
+\usepackage{amsmath}
+%\begin{titlepage}
+%\begin{center}
+\title{XML and NoSQL DBMS:Migration and Benchmarking}
+\subtitle{Master Thesis in fulfillment of the requirements for the degree of
+Master of Science (M.Sc.)}
+%\subtitle{Submitted to the Department of Computer and Information Science at the
+%University of Konstanz
+%}
+%{ \huge \bfseriesXML and NoSQL DBMS:Migration and Benchmarking \\[0.4cm] }
+%\includegraphics[width=0.15\textwidth]{./unisignet-klein}~\\[1cm]
+\author{\\\\Author: \\
+	Prakash Thapa
+	\\\\\\Supervisor: \\
+	Prof. Dr. Marc H. Scholl \\ 
+	\\\\\\
+	Konstanz University}
+%\end{center}
+%\end{titlepage}
+\begin{document}
+\definecolor{darkgray}{gray}{0.35}
+\lstnewenvironment{fakeXML}[1][]{
+\lstset{basicstyle=\footnotesize\sffamily,
+linewidth=\linewidth,
+breaklines=true, 
+%numbers=left,
+%stepnumber=1,
+%numbersep=10pt,
+frame=single,
+framerule=1.0pt,
+%backgroundcolor=\color{darkgray},
+language=HTML,
+%identifierstyle=\color[rgb]{1,0,0},
+%emph={intersects}, emphstyle=\color{red},
+%keywordstyle=\color[rgb]{0,0,1},
+%commentstyle=\color[rgb]{0.133,0.545,0.133},
+%stringstyle=\color[rgb]{0.627,0.126,0.941},
+morekeywords={xml, ref, xs, version, targetNamespace, minOccurs, maxOccurs}
+}\lstset{#1}}{}
+
+\lstnewenvironment{fakeJSON}[1][]{
+\lstset{
+basicstyle=\footnotesize\sffamily,
+linewidth=\linewidth,
+breaklines=true,
+%escapeinside={\%*}{*)}
+%numbers=left,
+%stepnumber=1,
+%numbersep=10pt,
+%frame=single,
+%framerule=1.0pt,
+language=HTML,
+emph={}
+}\lstset{#1}}{}
+
+
+\renewcommand{\lstlistingname}{Code}
+
+
+\maketitle
+\thispagestyle{empty}
+
+\newpage
+\section*{Abstract}
+
+\thispagestyle{empty}
+
+\newpage
+\section*{Acknowledgments}
+\thispagestyle{empty}
+
+The completion of this master thesis would not have been possible 
+without the support of many people. 
+I must express my sincerest thanks towards 
+Dr. Christian Gr{\"u}n for his continuous support and patience during my research.
+I should confess that I can not imagine a better person to guide and advise me. Besides, I would like to extend my gratitude to my supervisor Prof. Dr. Marc H. Scholl to give me the chance to be involved in this group.
+
+My special appreciation also goes to Prof. ...  for
+answering completely and accurately questions that I would ask
+frequently. I would like to offer my heartfull gratitude my parents and family for encouraging me 
+throughout my whole study at University. At the end, I am deeply appreciative of my beloved friend M. Ali Rostami which without who it was impossible to it do.
+
+
+\newpage
+\tableofcontents
+
+\thispagestyle{empty}
+\newpage
+\section{Introduction}
+\setcounter{page}{1}
+The geospatial data is increasingly becoming more important nowadays. example ...????
+Different ways of processing this data is studied over years. However, the huge existing data requires more efficient ways nowadays. The time complexity is specially of great interest. We talk about the motivations to ....
+chera XML khube.......
+
+\subsection{Motivation}
+Few years of time XML~\cite{www/xml} was  de facto data exchange format which enabled people to do previously not that easy thing that time like exchange of content of Microsoft's office documents exchange through HTTP connections. Native XML database 
+
+But in recent years a bold transformation has been a foot in the world of Data exchange. The more light weight, less bandwidth consumer JSON(JavaScript Object Notation)[1] has been emerge not just as an alternative to the XML but as rather as potential full Blown successor[2]. Even though these two format has their own pros and cons, the rise of JSON as key in data exchange format, new database technologies so called NoSQL  are also emerges and getting success in their own way. The rate of new research papers in these system are increasing in recent years. 
+
+\subsection{Overview}
+This essay will first define the concepts needed later in the discussion, called
+Methodology, in Section~\ref{s.method}. In this section, the basic geospatial data
+and it's application areas will be introduced. Also, various ways that other works
+are processing this data will be investigated in Section~\ref{s.rwork}. BaseX,
+as a native XML database, which is our focus in this essay, is studied and extended
+by a module to handle geospatial data in Section~\ref{s.basex}. 
+Section~\ref{s.mongo} improves the efficiency of the module
+by proposing another novel way considering MongoDB.
+Finally, new ideas for further works are explained in
+Section~\ref{s.future}.
+
+\newpage
+\section{Future Work}
+\label{s.future}
+storing in the memory
+\newpage
+\bibliographystyle{unsrt}
+\bibliography{refs}
+\newpage
+\listoffigures
+\newpage
+\listoftables
+\newpage
+\lstlistoflistings
+
+\end{document}	
