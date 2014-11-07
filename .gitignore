@@ -1,7 +1,9 @@
 test/
+literature/tests*
 test/*
 writing/*
 Tex/includes/first-page/author.tex
+Tex/bak.tex
 *.log
 *.lol
 *.toc

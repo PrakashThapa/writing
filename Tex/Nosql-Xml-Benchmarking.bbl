@@ -1,0 +1,20 @@
+\begin{thebibliography}{1}
+
+\bibitem{www/xml}
+Tim Bray, Jean Paoli, C.~M. Sperberg-McQueen, Eve Maler, et~al.
+\newblock {Extensible Markup Language (XML) 1.0 (Fifth Edition)}.
+\newblock http://www.w3.org/TR/xml, November 2008.
+
+\bibitem{xmark/original}
+Albrecht Schmidt, Florian Waas, Martin Kersten, Michael~J Carey, Ioana
+  Manolescu, and Ralph Busse.
+\newblock Xmark: A benchmark for xml data management.
+\newblock In {\em Proceedings of the 28th international conference on Very
+  Large Data Bases}, pages 974--985. VLDB Endowment, 2002.
+
+\bibitem{xmark/mlynkova2008xml}
+Irena Ml{\`y}nkov{\'a}.
+\newblock Xml benchmarking: Limitations and opportunities.
+\newblock Technical report.
+
+\end{thebibliography}
