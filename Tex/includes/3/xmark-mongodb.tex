@@ -33,7 +33,7 @@ Mongodb uses the concept of \textit{collections} and \textit{documents} to model
 \subsubsubsection{Queries}
 
 
-\begin{lstlisting}[language=json,firstnumber=1]
+\begin{fakeJSON}[label=json,caption=Mongodb data representation of XMARk data]
 {
    "_id": "person0",
    "doctype": "people",
@@ -52,8 +52,9 @@ Mongodb uses the concept of \textit{collections} and \textit{documents} to model
    }
    ....
 }
-\end{lstlisting} 
-\begin{fakeXML}[label=kml,caption=A simple KML example representing a Point]
+\end{fakeJSON} 
+
+\begin{fakeXML}[label=xml,caption=XMARK data with of \textit{person0}]
 
 <person id="person0">
    <name>Kasidit Treweek</name>
@@ -66,6 +67,7 @@ Mongodb uses the concept of \textit{collections} and \textit{documents} to model
       <education>Graduate School</education>
       <business>No</business>
    </profile>
+   ...
 </person>
 \end{fakeXML} 
 
