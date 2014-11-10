@@ -1,6 +1,7 @@
-Data in Mongodb has flexible schema where collections do not enforce document structure rather requirements of our application. There are two principle that allow application to represent documents and their relationship: \textit{reference} and \textit{embedded documents}. 
 
-\todo{ need to change following image according to xmark data}
+% % This section can go on section:4.2
+Mongodb uses the concept of \textit{collections} and \textit{documents} to model data. collections are the grouping of documents which generally have similar schemas. Data in Mongodb has flexible schema where collections do not enforce document structure rather requirements of our application. \todo{A collection is analogous to collection in XML database????}.  Documents are modeled as a data structure following the JSON format which is composed of key and value pair. There are two principle that allow application to represent documents and their relationship: \textit{reference} and \textit{embedded documents}. 
+\todo{ need to change following image/json according to xmark data}
 \begin{figure}
 	\centering
 	\subfigure[Reference document]{
@@ -22,4 +23,51 @@ Data in Mongodb has flexible schema where collections do not enforce document st
 \paragraph{Reference}
 		Reference store the relationships between data by including links and references from one document to another as in  Figure~\ref{fig:mongodb-ref-doc}. The application can resolve these reference to access the related data\todo{Mongodb data model pg4}
 \paragraph{Embedded}
-	Embedded documents captures relationships between the data by storing related data in a single document structure. The documents in this method are structured as sub-documents\todo{...??} in the in the form of Array or Object. 
+	Embedded documents captures relationships between the data by storing related data in a single document structure. The documents in this method are structured as sub-documents\todo{...??} in the in the form of Array or/and Object~\cite{nosql/comparision}. 
+	
+\paragraph{Indexing} 
+	Each document is Mongodb is uniquely identified by a field "\_id" which is a primary key. Hence the collection is sorted by \_id by default. \todo{but note that this primary key index is not a clustered index in Database terms. I.e. the index entries only contains pointers to actual documents in the MongoDB data files. Documents are not physically stored in the order of \_id on disks.}~\cite{nosql/comparision} ::expand...page:9
+
+\subsubsubsection{XMARK}
+	
+\subsubsubsection{Queries}
+
+
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+   "_id": "person0",
+   "doctype": "people",
+   "name": "Kasidit Treweek",
+   "emailaddress": "mailto:Treweek@cohera.com",
+   "phone": "+0 (645) 43954155",
+   "homepage": "http://www.cohera.com/~Treweek",
+   "creditcard": "9941 9701 2489 4716",
+   "profile": {
+      "income": 20186.59,
+      "interest": [{
+         "category": "category251"
+      }],
+      "education": "Graduate School",
+      "business": "No"
+   }
+   ....
+}
+\end{lstlisting} 
+\begin{fakeXML}[label=kml,caption=A simple KML example representing a Point]
+
+<person id="person0">
+   <name>Kasidit Treweek</name>
+   <emailaddress>mailto:Treweek@cohera.com</emailaddress>
+   <phone>+0 (645) 43954155</phone>
+   <homepage>http://www.cohera.com/~Treweek</homepage>
+   <creditcard>9941 9701 2489 4716</creditcard>
+   <profile income="20186.59">
+      <interest category="category251" />
+      <education>Graduate School</education>
+      <business>No</business>
+   </profile>
+</person>
+\end{fakeXML} 
+
+	
+	

@@ -4,4 +4,6 @@ Database file #1: includes/reference.bib
 Warning--I didn't find a database entry for "xml/VIST"
 Warning--empty institution in xmark/mlynkova2008xml
 Warning--empty year in xmark/mlynkova2008xml
-(There were 3 warnings)
+Warning--empty journal in nosql/comparision
+Warning--empty year in nosql/comparision
+(There were 5 warnings)
