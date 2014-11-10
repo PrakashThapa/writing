@@ -17,4 +17,16 @@ Irena Ml{\`y}nkov{\'a}.
 \newblock Xml benchmarking: Limitations and opportunities.
 \newblock Technical report.
 
+\bibitem{xmark/VIST}
+Haixun Wang, Sanghyun Park, Wei Fan, and Philip~S. Yu.
+\newblock Vist: A dynamic index method for querying xml data by tree
+  structures.
+\newblock In {\em In SIGMOD}, pages 110--121, 2003.
+
+\bibitem{tree-basedindexes}
+Leonard Brown and Le~Gruenwald.
+\newblock Tree-based indexes for image data.
+\newblock {\em Journal of Visual Communication and Image Representation, Volume
+  9, Number}, 4:300--313, 1998.
+
 \end{thebibliography}

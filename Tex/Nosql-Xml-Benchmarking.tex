@@ -5,8 +5,16 @@
 \usepackage{titling}
 \usepackage{color}
 \usepackage{listings}
-\usepackage{xcolor}
+\usepackage[pdftex,dvipsnames]{xcolor}
 \usepackage{nomencl}
+\usepackage[graphicx]{realboxes}
+\usepackage{rotating}
+\definecolor{light-gray}{gray}{0.80}
+\usepackage{url}
+\usepackage[tight,footnotesize]{subfigure}  
+\usepackage[top=2cm, bottom=2cm, left=4cm, right=2cm]{geometry}
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+
 \let\abbrev\nomenclature
 \renewcommand{\nomname}{List of Abbreviations}
 \setlength{\nomlabelwidth}{.25\hsize}
@@ -25,14 +33,8 @@
 	\begin{center}\large#1\end{center}
 	\vskip0.5em}%
 }
-\usepackage[graphicx]{realboxes}
-\usepackage{color}
-\usepackage{rotating}
-\definecolor{light-gray}{gray}{0.80}
-\usepackage{url}
-\usepackage{listings}
-\usepackage[tight,footnotesize]{subfigure}  
-\usepackage[top=2cm, bottom=2cm, left=4cm, right=2cm]{geometry}
+
+
 %\begin{titlepage}
 %\begin{center}
 \title{XML and NoSQL DBMS: Migration and Benchmarking}
@@ -49,7 +51,7 @@
 %\end{titlepage}
 \begin{document}
 	\input{includes/custom/commands}
-	\renewcommand{\lstlistingname}{Code}
+	\renewcommand{\lstlistingname}{Code} 
 	
 	
 	\maketitle
@@ -122,12 +124,18 @@
 	\newpage
 	\section{Performance/Experiments}
 		\subsection{XMark}
+		\label{xmark}
 			\input{includes/3/xmark}
 		\subsection{Evaluation of test devices}
 		\subsection{XMark data into NoSQL Database}
+			\input{includes/3/xmark-nosql}			
 			\subsubsection{MongoDB}
+			\label{xmark-mongodb}
+			\input{includes/3/xmark-mongodb}
 			\subsubsection{Couchbase}
+			\label{xmark-couchbase}
 			\subsubsection{Rethinkdb}
+			\label{xmark-rethinkdb}		
 		\subsection{Benchmarking}
 		\subsection{Summary}
 	\newpage
