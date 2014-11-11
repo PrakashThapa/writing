@@ -21,55 +21,56 @@ Mongodb uses the concept of \textit{collections} and \textit{documents} to model
 \end{figure}
 
 \paragraph{Reference}
-		Reference store the relationships between data by including links and references from one document to another as in  Figure~\ref{fig:mongodb-ref-doc}. The application can resolve these reference to access the related data\todo{Mongodb data model pg4}
+	Reference store the relationships between data by including links and references from one document to another as in  Figure~\ref{fig:mongodb-ref-doc}. The application can resolve these reference to access the related data\todo{Mongodb data model pg4}
 \paragraph{Embedded}
 	Embedded documents captures relationships between the data by storing related data in a single document structure. The documents in this method are structured as sub-documents\todo{...??} in the in the form of Array or/and Object~\cite{nosql/comparision}. 
 	
 \paragraph{Indexing} 
-	Each document is Mongodb is uniquely identified by a field "\_id" which is a primary key. Hence the collection is sorted by \_id by default. \todo{but note that this primary key index is not a clustered index in Database terms. I.e. the index entries only contains pointers to actual documents in the MongoDB data files. Documents are not physically stored in the order of \_id on disks.}~\cite{nosql/comparision} ::expand...page:9
-
-\subsubsubsection{XMARK}
+	Each document in Mongodb is uniquely identified by a field \textit{\_id} which is a primary index. Hence the collection is sorted by \_id by default. \todo{but note that this primary key index is not a clustered index in Database terms. I.e. the index entries only contains pointers to actual documents in the MongoDB data files. Documents are not physically stored in the order of \_id on disks.??  ::expand...page:9}~\cite{nosql/comparision}
 	
-\subsubsubsection{Queries}
 
+\subsubsubsection{XMARK in Mongo}
 
 \begin{fakeJSON}[label=json,caption=Mongodb data representation of XMARk data]
-{
-   "_id": "person0",
-   "doctype": "people",
-   "name": "Kasidit Treweek",
-   "emailaddress": "mailto:Treweek@cohera.com",
-   "phone": "+0 (645) 43954155",
-   "homepage": "http://www.cohera.com/~Treweek",
-   "creditcard": "9941 9701 2489 4716",
-   "profile": {
-      "income": 20186.59,
-      "interest": [{
-         "category": "category251"
-      }],
-      "education": "Graduate School",
-      "business": "No"
-   }
-   ....
-}
+	{
+		"_id": "person0",
+		"doctype": "people",
+		"name": "Kasidit Treweek",
+		"emailaddress": "mailto:Treweek@cohera.com",
+		"phone": "+0 (645) 43954155",
+		"homepage": "http://www.cohera.com/~Treweek",
+		"creditcard": "9941 9701 2489 4716",
+		"profile": {
+			"income": 20186.59,
+			"interest": [{
+				"category": "category251"
+			}],
+			"education": "Graduate School",
+			"business": "No"
+		}
+		....
+	}
 \end{fakeJSON} 
 
 \begin{fakeXML}[label=xml,caption=XMARK data with of \textit{person0}]
-
-<person id="person0">
-   <name>Kasidit Treweek</name>
-   <emailaddress>mailto:Treweek@cohera.com</emailaddress>
-   <phone>+0 (645) 43954155</phone>
-   <homepage>http://www.cohera.com/~Treweek</homepage>
-   <creditcard>9941 9701 2489 4716</creditcard>
-   <profile income="20186.59">
-      <interest category="category251" />
-      <education>Graduate School</education>
-      <business>No</business>
-   </profile>
-   ...
-</person>
+	
+	<person id="person0">
+	<name>Kasidit Treweek</name>
+	<emailaddress>mailto:Treweek@cohera.com</emailaddress>
+	<phone>+0 (645) 43954155</phone>
+	<homepage>http://www.cohera.com/~Treweek</homepage>
+	<creditcard>9941 9701 2489 4716</creditcard>
+	<profile income="20186.59">
+	<interest category="category251" />
+	<education>Graduate School</education>
+	<business>No</business>
+	</profile>
+	...
+	</person>
 \end{fakeXML} 
+
+	
+\subsubsubsection{Queries}
 
 	
 	
