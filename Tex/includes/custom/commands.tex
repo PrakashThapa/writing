@@ -21,6 +21,13 @@ morekeywords={xml, ref, xs, version, targetNamespace, minOccurs, maxOccurs}
 \lstnewenvironment{fakeJSON}[1][]{
 	\lstset{
 		basicstyle=\footnotesize\sffamily,
+		keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+		ndkeywords={class, export, boolean, throw, implements, import, this},
+		sensitive=false,
+		comment=[l]{//},
+		morecomment=[s]{/*}{*/},
+		morestring=[b]',
+		morestring=[b]"
 		linewidth=\linewidth,
 		breaklines=true,
 		escapeinside={\%*}{*)}

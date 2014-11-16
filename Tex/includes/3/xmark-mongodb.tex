@@ -1,6 +1,6 @@
 
 % % This section can go on section:4.2
-Mongodb uses the concept of \textit{collections} and \textit{documents} to model data. collections are the grouping of documents which generally have similar schemas. Data in Mongodb has flexible schema where collections do not enforce document structure rather requirements of our application. \todo{A collection is analogous to collection in XML database????}.  Documents are modeled as a data structure following the JSON format which is composed of key and value pair. There are two principle that allow application to represent documents and their relationship: \textit{reference} and \textit{embedded documents}. 
+Mongodb uses the concept of \textit{collections} and \textit{documents} to model data. Collections are the grouping of documents which generally have similar schemas. Data in Mongodb has flexible schema where collections do not enforce document structure rather requirements of our application. \todo{A collection is analogous to collection in XML database????}.  Documents are modeled as a data structure following the JSON format which is composed of key and value pair. There are two principle that allow application to represent documents and their relationship: \textit{reference} and \textit{embedded documents}. 
 \todo{ need to change following image/json according to xmark data}
 \begin{figure}
 	\centering
@@ -29,7 +29,7 @@ Mongodb uses the concept of \textit{collections} and \textit{documents} to model
 	Each document in Mongodb is uniquely identified by a field \textit{\_id} which is a primary index. Hence the collection is sorted by \_id by default. \todo{but note that this primary key index is not a clustered index in Database terms. I.e. the index entries only contains pointers to actual documents in the MongoDB data files. Documents are not physically stored in the order of \_id on disks.??  ::expand...page:9}~\cite{nosql/comparision}
 	
 
-\subsubsubsection{XMARK in Mongo}
+\subsubsubsection{XMARK in MongoDB}
 
 \begin{fakeJSON}[label=json,caption=Mongodb data representation of XMARk data]
 {

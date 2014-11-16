@@ -52,6 +52,7 @@
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}
 
+
 % end of subsubsubsection environment % %
 
 
@@ -102,7 +103,13 @@
 	
 	\newpage
 	\section*{Abstract}
-	\input{includes/1/abstract}
+		XML and NoSQL database are two growing field in second generation database system, They share some similarities as well as they have some significant difference. 
+		This thesis focus on the  comparative analysis of these two database system based on the Use cases and existing solution, we will discuss the data processing, query pattern and  Information Retrieval(\textit{IR})
+		
+		............
+		...........
+		............
+	
 	\thispagestyle{empty}	
 	\newpage
 	\section*{Zusammenfassung(German Abstract)}
@@ -119,13 +126,16 @@
 	\setcounter{page}{1}
 	\subsection{Motivation}
 		\label{motivation}
-		\input{includes/1/motivation}
+			Few years of time XML~\cite{www/xml} was  \textit{de facto} data exchange format which enabled people to do previously not that easy thing  at that time like exchange of content of Microsoft's office documents transfer through HTTP connections. 
+			But in recent years a bold transformation has been a foot in the world of Data exchange. The more light weight, less bandwidth consumer JSON~\cite{www/json} has been emerge as an alternative to the XML. Even though these two format are comparatively very different in case of features and functionality  and has their own pros and cons, the rise of JSON as key in data exchange format, new database technologies so called \textit{NoSQL}  are also emerges and getting success in their own way. The rate of new research in these system are increasing in recent years
+			......
+			....
 	
 	\subsection{Contribution}
 		\input{includes/1/contribution}
-		
+	\subsection{Scope of Thesis}
 	\subsection{Overview}
-		\input{includes/1/overview}
+		This thesis is divided into three main sections. The first section define the Techniques and necessary algorithms to convert XML  to JSON Data format. The second section will Systems and scope of work. On third section, we see the performance and comparative analysis of each of these systems.
 		The work is structured as follows:
 		Chapter 2:
 		Chapter 3:
@@ -136,6 +146,15 @@
 	\section{Preliminaries}
 		\subsection{Semi-structured data}
 		\subsubsection{XML and JSON}
+			%JSON documents consists of a number of key-value pair (also called attribute-value pair)
+			JSON and XML looks conceptually similar as they both text based markup language which are designed to represent data in human readable, interchangeable across multiple platform and parseable by common programming language. At the beginning they appear like quite similar, difference being in notations. But, in reality, they are fundamentally incompatible in their abstract data modeling~\cite{lee2011jxon}.
+			\textbf{what are the Problems???}
+			\paragraph{Document node}
+			\paragraph{Anonymous values}
+			\paragraph{Arrays}
+			\paragraph{Identifiers}
+			\paragraph{Attributes}
+			\paragraph{Namespaces}
 		\subsection{Mapping}
 			\subsubsection{Friendly}
 			\subsubsection{Unfriendly}
@@ -150,13 +169,12 @@
 		\subsubsection{Querying NoSQL database}
 		
 	\newpage
+	%this section have to move to in conclusion and future work
 	\section{Related work}
 	\newpage
 	\section{System/Environment}
 		\subsection{BaseX}
-			\input{includes/2/basex}
-			
-			\newpage
+			%\input{includes/2/basex}
 		\subsection{MongoDB}
 			%\input{includes/2/mongodb}
 		\subsection{Couchbase}
@@ -169,7 +187,7 @@
 		\subsection{XMark}
 		\label{xmark}
 			\input{includes/3/xmark}
-		\subsection{Evaluation of test devices}
+		\subsection{Evaluation of Test devices}
 		\subsection{XMark data into NoSQL Database}
 			\input{includes/3/xmark-nosql}			
 			\subsubsection{MongoDB}
@@ -200,9 +218,9 @@
 	\listoftables
 	\newpage
 	\lstlistoflistings
-	%%%%%%%%%%%%%%%%%%%%%abkurzen
-	\abbrev{dex}{Dalvik Executable}
+	%%%%%%%%%%%%%%%%%%%%%abbreviate
 	\abbrev{XML}{Extensible Markup Language}
+	\abbrev{JSON}{JavaScript Object Notation}
 	\abbrev{VM}{Virtual Machine}
 	\abbrev{JVM}{Java Virtual Machine}
 	\abbrev{IPC}{Inter-process Communication}

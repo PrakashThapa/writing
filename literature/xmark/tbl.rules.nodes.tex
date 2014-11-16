@@ -1,0 +1,453 @@
+\lstset{
+  frame=none,
+  numbers=none
+}
+\begin{longtable}{c|c}
+\caption[Translation of nested XSD elements]{Translation of nested XSD elements}
+\label{tbl:rules:nodes}\\
+
+\textbf{XML Schema Fragment} & \textbf{JSON Schema equivalent}\\
+\hline
+
+\begin{minipage}{.52\textwidth}
+\begin{tikzpicture}[%
+  grow via three points={one child at (0.5,-0.7) and
+  two children at (0.5,-0.7) and (0.5,-1.4)},
+  edge from parent path={(\tikzparentnode.south) |- (\tikzchildnode.west)}]
+  \node {\texttt{xs:restriction}}
+    child { node [defi] {\textit{All\_ID}}}
+    child { node {\texttt{xs:enumeration}}
+      child { node [defi] {\textit{Enumeration\_ID}}}  
+      child { node [attribute] {\texttt{@value}}}
+    };    
+\end{tikzpicture}
+\end{minipage} &
+\begin{minipage}{.45\textwidth}
+\begin{lstlisting}
+{
+  "enum": [Value]
+}
+\end{lstlisting}
+\end{minipage}\\
+
+\hline
+\begin{minipage}{.5\textwidth}
+\begin{tikzpicture}[%
+  grow via three points={one child at (0.5,-0.7) and
+  two children at (0.5,-0.7) and (0.5,-1.4)},
+  edge from parent path={(\tikzparentnode.south) |- (\tikzchildnode.west)}]
+  \node {\texttt{xs:element}}
+    child { node [defi] {\textit{Element\_ID}}}
+    child { node [attribute] {\textit{fixed}}};
+\end{tikzpicture}
+\end{minipage} &
+\begin{minipage}{.45\textwidth}
+\begin{lstlisting}
+{
+  "enum": [Fixed]
+}
+\end{lstlisting}
+\end{minipage}\\
+
+\hline
+\begin{minipage}{.5\textwidth}
+\begin{tikzpicture}[%
+  grow via three points={one child at (0.5,-0.7) and
+  two children at (0.5,-0.7) and (0.5,-1.4)},
+  edge from parent path={(\tikzparentnode.south) |- (\tikzchildnode.west)}]
+  \node {\texttt{xs:element}}
+    child { node [defi] {\textit{Element\_ID}}}
+    child { node [attribute] {\textit{type}}};
+\end{tikzpicture}
+\end{minipage} &
+\begin{minipage}{.45\textwidth}
+\begin{lstlisting}
+{
+  "type": Type
+}
+\end{lstlisting}
+(with \texttt{Type} not being a basis or derived type)
+\end{minipage}\\
+
+\hline
+\begin{minipage}{.5\textwidth}
+\begin{tikzpicture}[%
+  grow via three points={one child at (0.5,-0.7) and
+  two children at (0.5,-0.7) and (0.5,-1.4)},
+  edge from parent path={(\tikzparentnode.south) |- (\tikzchildnode.west)}]
+  \node {\texttt{xs:element}}
+    child { node [defi] {\textit{Element\_ID}}}
+    child { node {\texttt{xs:documentation}}
+      child { node [defi] {\textit{Documentation\_ID}}}
+      child { node {\texttt{xs:annotation}}
+        child { node [defi] {\textit{An\_ID}}}
+        child { node [textnode] {\texttt{text}}}
+      }
+    };
+\end{tikzpicture}
+\end{minipage} &
+\begin{minipage}{.45\textwidth}
+\begin{lstlisting}
+{
+  "description": Text
+}
+\end{lstlisting}
+\end{minipage}\\
+
+\hline
+\begin{minipage}{.5\textwidth}
+\begin{tikzpicture}[%
+  grow via three points={one child at (0.5,-0.7) and
+  two children at (0.5,-0.7) and (0.5,-1.4)},
+  edge from parent path={(\tikzparentnode.south) |- (\tikzchildnode.west)}]
+  \node {\texttt{xs:simpleType}}
+    child { node [defi] {\textit{SimpleType\_ID}}}
+    child { node [attribute] {\texttt{@name}}}
+    child { node {\texttt{xs:documentation}}
+      child { node [defi] {\textit{Documentation\_ID}}}
+      child { node {\texttt{xs:annotation}}
+        child { node [defi] {\textit{An\_ID}}}
+        child { node [textnode] {\texttt{text}}}
+      }
+    };
+\end{tikzpicture}
+\end{minipage} &
+\begin{minipage}{.45\textwidth}
+\begin{lstlisting}
+{
+  "description": Text
+}
+\end{lstlisting}
+\end{minipage}\\
+
+\hline
+\begin{minipage}{.5\textwidth}
+\begin{tikzpicture}[%
+  grow via three points={one child at (0.5,-0.7) and
+  two children at (0.5,-0.7) and (0.5,-1.4)},
+  edge from parent path={(\tikzparentnode.south) |- (\tikzchildnode.west)}]
+  \node {xs:all}
+    child { node [defi] {\textit{All\_ID}}}
+    child { node [json] {xs:element}
+      child { node [defi] {\textit{Element\_ID}}}
+      child { node [attribute] {@minOccurs}}
+      child { node [attribute] {@maxOccurs}}
+      child { node [attribute] {@name}}
+    };
+\end{tikzpicture}
+\end{minipage} &
+\begin{minipage}{.45\textwidth}
+\begin{lstlisting}
+{
+  "type": "object",
+  "properties": {
+    Name: JSON
+  },
+  required: [Name]
+}
+\end{lstlisting}
+(if \texttt{is\_required\_property/2}, see \ref{sec:sources:isrequiredproperty2}, is true)
+\end{minipage}\\
+
+\hline
+\begin{minipage}{.5\textwidth}
+\begin{tikzpicture}[%
+  grow via three points={one child at (0.5,-0.7) and
+  two children at (0.5,-0.7) and (0.5,-1.4)},
+  edge from parent path={(\tikzparentnode.south) |- (\tikzchildnode.west)}]
+  \node {xs:all}
+    child { node [defi] {\textit{All\_ID}}}
+    child { node [json] {xs:element}
+      child { node [defi] {\textit{Element\_ID}}}
+      child { node [attribute] {@minOccurs}}
+      child { node [attribute] {@maxOccurs}}
+      child { node [attribute] {@name}}
+    };
+\end{tikzpicture}
+\end{minipage} &
+\begin{minipage}{.45\textwidth}
+\begin{lstlisting}
+{
+  "type": "object",
+  "properties": {
+    Name: JSON
+  }
+}
+\end{lstlisting}
+(if \texttt{is\_required\_property/2}, see \ref{sec:sources:isrequiredproperty2}, is false)
+\end{minipage}\\
+
+\hline
+\begin{minipage}{.5\textwidth}
+\begin{tikzpicture}[%
+  grow via three points={one child at (0.5,-0.7) and
+  two children at (0.5,-0.7) and (0.5,-1.4)},
+  edge from parent path={(\tikzparentnode.south) |- (\tikzchildnode.west)}]
+  \node {xs:sequence}
+    child { node [defi] {\textit{Sequence\_ID}}}
+    child { node [json] {xs:element}
+      child { node [defi] {\textit{Element\_ID}}}
+      child { node [attribute] {@minOccurs}}
+      child { node [attribute] {@maxOccurs}}
+      child { node [attribute] {@name}}
+    };
+\end{tikzpicture}
+\end{minipage} &
+\begin{minipage}{.45\textwidth}
+\begin{lstlisting}
+{
+  "type": "object",
+  "properties": {
+    Name: JSON
+  },
+  required: [Name]
+}
+\end{lstlisting}
+(if \texttt{MinOccurs=1} and \texttt{MaxOccurs=1})
+\end{minipage}\\
+
+\hline
+\begin{minipage}{.5\textwidth}
+\begin{tikzpicture}[%
+  grow via three points={one child at (0.5,-0.7) and
+  two children at (0.5,-0.7) and (0.5,-1.4)},
+  edge from parent path={(\tikzparentnode.south) |- (\tikzchildnode.west)}]
+  \node {xs:sequence}
+    child { node [defi] {\textit{Sequence\_ID}}}
+    child { node [json] {xs:element}
+      child { node [defi] {\textit{Element\_ID}}}
+      child { node [attribute] {@minOccurs}}
+      child { node [attribute] {@maxOccurs}}
+      child { node [attribute] {@name}}
+    };
+\end{tikzpicture}
+\end{minipage} &
+\begin{minipage}{.45\textwidth}
+\begin{lstlisting}
+{
+  "type": "object",
+  "properties": {
+    Name: JSON
+  }
+}
+\end{lstlisting}
+(if \texttt{MinOccurs=0} and \texttt{MaxOccurs=1})
+\end{minipage}\\
+
+\hline
+\begin{minipage}{.5\textwidth}
+\begin{tikzpicture}[%
+  grow via three points={one child at (0.5,-0.7) and
+  two children at (0.5,-0.7) and (0.5,-1.4)},
+  edge from parent path={(\tikzparentnode.south) |- (\tikzchildnode.west)}]
+  \node {xs:sequence}
+    child { node [defi] {\textit{Sequence\_ID}}}
+    child { node [json] {xs:element}
+      child { node [defi] {\textit{Element\_ID}}}
+      child { node [attribute] {@minOccurs}}
+      child { node [attribute] {@maxOccurs}}
+      child { node [attribute] {@name}}
+    };
+\end{tikzpicture}
+\end{minipage} &
+\begin{minipage}{.45\textwidth}
+\begin{lstlisting}
+{
+  "type": "object",
+  "properties": {
+    Name: {
+      "type": "array",
+      "items": JSON,
+      "minItems": MinOccurs
+    }
+  },
+  required: [Name]
+}
+\end{lstlisting}
+(if \texttt{MinOccurs>0} and \texttt{MaxOccurs=unbounded})
+\end{minipage}\\
+
+\hline
+\begin{minipage}{.5\textwidth}
+\begin{tikzpicture}[%
+  grow via three points={one child at (0.5,-0.7) and
+  two children at (0.5,-0.7) and (0.5,-1.4)},
+  edge from parent path={(\tikzparentnode.south) |- (\tikzchildnode.west)}]
+  \node {xs:sequence}
+    child { node [defi] {\textit{Sequence\_ID}}}
+    child { node [json] {xs:element}
+      child { node [defi] {\textit{Element\_ID}}}
+      child { node [attribute] {@minOccurs}}
+      child { node [attribute] {@maxOccurs}}
+      child { node [attribute] {@name}}
+    };
+\end{tikzpicture}
+\end{minipage} &
+\begin{minipage}{.45\textwidth}
+\begin{lstlisting}
+{
+  "type": "object",
+  "properties": {
+    Name: {
+      "type": "array",
+      "items": JSON,
+      "minItems": MinOccurs
+    }
+  }
+}
+\end{lstlisting}
+(if \texttt{MinOccurs=0} and \texttt{MaxOccurs=unbounded})
+\end{minipage}\\
+
+\hline
+\begin{minipage}{.5\textwidth}
+\begin{tikzpicture}[%
+  grow via three points={one child at (0.5,-0.7) and
+  two children at (0.5,-0.7) and (0.5,-1.4)},
+  edge from parent path={(\tikzparentnode.south) |- (\tikzchildnode.west)}]
+  \node {xs:sequence}
+    child { node [defi] {\textit{Sequence\_ID}}}
+    child { node [json] {xs:element}
+      child { node [defi] {\textit{Element\_ID}}}
+      child { node [attribute] {@minOccurs}}
+      child { node [attribute] {@maxOccurs}}
+      child { node [attribute] {@name}}
+    };
+\end{tikzpicture}
+\end{minipage} &
+\begin{minipage}{.45\textwidth}
+\begin{lstlisting}
+{
+  "type": "object",
+  "properties": {
+    Name: {
+      "type": "array",
+      "items": JSON,
+      "minItems": MinOccurs,
+      "maxItems": MaxOccurs
+    }
+  },
+  required: [Name]
+}
+\end{lstlisting}
+(if \texttt{MinOccurs>0} and \texttt{MaxOccurs} is not \texttt{unbounded})
+\end{minipage}\\
+
+\hline
+\begin{minipage}{.5\textwidth}
+\begin{tikzpicture}[%
+  grow via three points={one child at (0.5,-0.7) and
+  two children at (0.5,-0.7) and (0.5,-1.4)},
+  edge from parent path={(\tikzparentnode.south) |- (\tikzchildnode.west)}]
+  \node {xs:sequence}
+    child { node [defi] {\textit{Sequence\_ID}}}
+    child { node [json] {xs:element}
+      child { node [defi] {\textit{Element\_ID}}}
+      child { node [attribute] {@minOccurs}}
+      child { node [attribute] {@maxOccurs}}
+      child { node [attribute] {@name}}
+    };
+\end{tikzpicture}
+\end{minipage} &
+\begin{minipage}{.45\textwidth}
+\begin{lstlisting}
+{
+  "type": "object",
+  "properties": {
+    Name: {
+      "type": "array",
+      "items": JSON,
+      "minItems": MinOccurs,
+      "maxItems": MaxOccurs
+    }
+  }
+}
+\end{lstlisting}
+(if \texttt{MinOccurs=0} and \texttt{MaxOccurs} is not \texttt{unbounded})
+\end{minipage}\\
+
+\hline
+\begin{minipage}{.5\textwidth}
+\begin{tikzpicture}[%
+  grow via three points={one child at (0.5,-0.7) and
+  two children at (0.5,-0.7) and (0.5,-1.4)},
+  edge from parent path={(\tikzparentnode.south) |- (\tikzchildnode.west)}]
+  \node {xs:complexType}
+    child { node [defi] {\textit{ComplexType\_ID}}}
+    child { node [json] {xs:attribute}
+      child { node [defi] {\textit{Attribute\_ID}}}
+      child { node [attribute] {@name}}
+      child { node [attribute] {@type}}
+      child { node [attribute] {@use}}
+      child { node [attribute] {@fixed}}
+      child { node [attribute] {@default}}
+    };
+\end{tikzpicture}
+\end{minipage} &
+\begin{minipage}{.45\textwidth}
+\begin{lstlisting}
+{
+  "type": "object",
+  "properties": {
+    @Name: {
+      "type": JSON,
+      "enum": [Fixed]
+    }
+  },
+  required: [@Name]
+}
+\end{lstlisting}
+Note: The name of a property given as attribute is
+prefixed with an \texttt{@} which might be removed later.
+
+The values of the \texttt{required}, \texttt{enum} and \texttt{enum}
+keys depend on the attributes of the \texttt{xs:attribute} node.
+The complete implementation of the handling of \texttt{xs:attribute}
+nodes can be found in the appendix \ref{sec:sourcesCHR:attribute}.
+\end{minipage}\\
+
+\hline
+\begin{minipage}{.5\textwidth}
+\begin{tikzpicture}[%
+  grow via three points={one child at (0.5,-0.7) and
+  two children at (0.5,-0.7) and (0.5,-1.4)},
+  edge from parent path={(\tikzparentnode.south) |- (\tikzchildnode.west)}]
+  \node {xs:schema}
+    child { node [defi] {\textit{Schema\_ID}}}
+    child { node [json] {xs:attribute}
+      child { node [defi] {\textit{Attribute\_ID}}}
+      child { node [attribute] {@name}}
+      child { node [attribute] {@type}}
+      child { node [attribute] {@fixed}}
+      child { node [attribute] {@default}}
+    };
+\end{tikzpicture}
+\end{minipage} &
+\begin{minipage}{.45\textwidth}
+\begin{lstlisting}
+{
+  "definitions": {
+    @Name: {
+      "type": JSON,
+      "enum": [Fixed]
+    }
+  }
+}
+\end{lstlisting}
+Note: Because @Name is only an identifier in the \texttt{definitions}
+part the prefix-\texttt{@} will not be removed later.
+
+The values of the \texttt{required}, \texttt{enum} and \texttt{enum}
+keys depend on the attributes of the \texttt{xs:attribute} node.
+The implementation is similar to the one shown in the appendix
+\ref{sec:sourcesCHR:attribute}.
+\end{minipage}\\
+
+\end{longtable}
+\lstset{
+  showstringspaces=false,
+  frame=single,
+  numbers=left,
+  basicstyle=\ttfamily,
+  numberstyle=\tiny
+}
