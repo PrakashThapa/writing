@@ -1,9 +1,11 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: Nosql-Xml-Benchmarking.aux
 The style file: unsrt.bst
 Database file #1: includes/reference.bib
+Warning--entry type for "bson" isn't style-file defined
+--line 78 of file includes/reference.bib
 Warning--I didn't find a database entry for "www/json"
 Warning--empty institution in xmark/mlynkova2008xml
 Warning--empty year in xmark/mlynkova2008xml
 Warning--empty journal in nosql/comparision
 Warning--empty year in nosql/comparision
-(There were 5 warnings)
+(There were 6 warnings)

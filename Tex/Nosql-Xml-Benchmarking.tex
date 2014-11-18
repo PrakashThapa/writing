@@ -18,7 +18,7 @@
 %\usepackage{minted} %for js code
 \usepackage{tikz}
 \usetikzlibrary{arrows,shapes,positioning,shadows,trees}
-
+\usepackage{enumitem}
 
 % start of subsubsubsection environment % %
 \titleclass{\subsubsubsection}{straight}[\subsection]
@@ -52,6 +52,11 @@
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}
 
+\tikzstyle{every node}=[draw=black,thick,anchor=west,font=\small]
+\tikzstyle{json}=[draw=green,fill=green!30]
+\tikzstyle{attribute}=[draw=none]
+\tikzstyle{defi}=[draw=gray,dashed]
+\tikzstyle{textnode}=[draw=gray,fill=gray!30]
 
 % end of subsubsubsection environment % %
 
@@ -103,18 +108,17 @@
 	
 	\newpage
 	\section*{Abstract}
-		XML and NoSQL database are two growing field in second generation database system, They share some similarities as well as they have some significant difference. 
+		XML and NoSQL database are two growing field in second generation database system, they share some similarities as well as they have some significant difference. 
 		This thesis focus on the  comparative analysis of these two database system based on the Use cases and existing solution, we will discuss the data processing, query pattern and  Information Retrieval(\textit{IR})
 		
 		............
 		...........
 		............
 	
-	\thispagestyle{empty}	
-	\newpage
+	%\newpage
 	\section*{Zusammenfassung(German Abstract)}
 	\input{includes/1/abstract-de}
-	\newpage
+	%\newpage
 	\section*{Acknowledgments}
 	\input{includes/1/acknowledge}
 	\thispagestyle{empty}
@@ -126,25 +130,32 @@
 	\setcounter{page}{1}
 	\subsection{Motivation}
 		\label{motivation}
-			Few years of time XML~\cite{www/xml} was  \textit{de facto} data exchange format which enabled people to do previously not that easy thing  at that time like exchange of content of Microsoft's office documents transfer through HTTP connections. 
-			But in recent years a bold transformation has been a foot in the world of Data exchange. The more light weight, less bandwidth consumer JSON~\cite{www/json} has been emerge as an alternative to the XML. Even though these two format are comparatively very different in case of features and functionality  and has their own pros and cons, the rise of JSON as key in data exchange format, new database technologies so called \textit{NoSQL}  are also emerges and getting success in their own way. The rate of new research in these system are increasing in recent years
+			Few years of time XML~\cite{www/xml} was  \textit{de facto} data exchange format. It enabled people to do previously  which enabled people to do previously not that easy thing  at that time like exchange of content of Microsoft's office documents transfer through HTTP connections. But in recent years a bold transformation has been a foot in the world of Data exchange. The more light weight, less bandwidth consumer JSON~\cite{www/json} has been emerge as an alternative to the XML. Even though these two format are comparatively very different in case of features and functionality  and has their own pros and cons, the rise of JSON as key in data exchange format, new database technologies so called \textit{NoSQL}  are also emerges and getting success in their own way. The rate of new research in these system are increasing in recent years\todo{revise very well just need to change ....}
+			
+			A very flexible data model, horizontally scalable, distributed architecture and easy use of language and interfaces drive NoSQL on the way of popularity.  
 			......
 			....
 	
 	\subsection{Contribution}
-		\input{includes/1/contribution}
+		%\input{includes/1/contribution}
+		The main contribution of this thesis is that it provides the necessary techniques and algorithms for migration of data from XML database to NoSQL databases.  More specifically, it will focus on document store databases like MongoDB, Couchbase and Rethinkdb as NoSQL and BaseX as XML Database. To complete this task it is necessary to understand general architecture and data model of each of these database as well and the Information Retrieval(\textit{IR}).
+		At the second part, conversion of XQuery Queries of XMark project to individual NoSQL database and their effect will be explained
+		......
+		.....
+		
 	\subsection{Scope of Thesis}
+	%The translation process use in this thesis from One format to another is based on XMark Dataset.
+	.....
+	....
 	\subsection{Overview}
-		This thesis is divided into three main sections. The first section define the Techniques and necessary algorithms to convert XML  to JSON Data format. The second section will Systems and scope of work. On third section, we see the performance and comparative analysis of each of these systems.
-		The work is structured as follows:
-		Chapter 2:
-		Chapter 3:
-		Chapter 4:
-		Chapter 5: 
+		This thesis is divided into three main sections. The first section define the Techniques and necessary algorithms to convert XML  to JSON Data format. The second section will Systems and scope of work. On third section, we will see the performance and comparative analysis of each of NoSQL databases with XML database based on XMark Benchmarking project.
+		
 		
 	\newpage
-	\section{Preliminaries}
-		\subsection{Semi-structured data}
+	\section{Semi-structured data}
+	%\section{Preliminaries}
+
+		%\subsection{Semi-structured data}
 		\subsubsection{XML and JSON}
 			%JSON documents consists of a number of key-value pair (also called attribute-value pair)
 			JSON and XML looks conceptually similar as they both text based markup language which are designed to represent data in human readable, interchangeable across multiple platform and parseable by common programming language. At the beginning they appear like quite similar, difference being in notations. But, in reality, they are fundamentally incompatible in their abstract data modeling~\cite{lee2011jxon}.
@@ -155,28 +166,36 @@
 			\paragraph{Identifiers}
 			\paragraph{Attributes}
 			\paragraph{Namespaces}
+		
+			\todo{ALSO definition of XML and XSD is needed here}
+			\\
+			\\
+			A JSON document consists of numbers of key-value pair which is unordered set of name/value named \texttt{Objects} and order list of values realized as \texttt{Array}.\todo{??? need to explain object and array}
+			A JSON value can be Object, Array, number, string, \texttt{true}, \texttt{false} and \texttt{null}.
 		\subsection{Mapping}
 			\subsubsection{Friendly}
 			\subsubsection{Unfriendly}
 			\subsubsection{Array and Object}
 			\subsubsection{Mapping approaches}
 			\subsubsection{Summary}
+		\subsection{Translation from XML to JSON}
+			
 		\subsection{XML Database}
 			\subsubsection{XML Query Language}
 		\subsection{NoSQL database}
 			\subsubsection{Key/Value storage}
 			\subsection{document oriented database}
 		\subsubsection{Querying NoSQL database}
-		
-	\newpage
+	%\newpage
 	%this section have to move to in conclusion and future work
-	\section{Related work}
+	%\section{Related work}
 	\newpage
 	\section{System/Environment}
 		\subsection{BaseX}
 			%\input{includes/2/basex}
 		\subsection{MongoDB}
 			%\input{includes/2/mongodb}
+		\label{couchbase-general}
 		\subsection{Couchbase}
 			%\input{includes/2/couchbase}
 		\subsection{Rethinkdb}		
@@ -189,7 +208,9 @@
 			\input{includes/3/xmark}
 		\subsection{Evaluation of Test devices}
 		\subsection{XMark data into NoSQL Database}
-			\input{includes/3/xmark-nosql}			
+			\label{xmark-nosql}
+			\input{includes/3/xmark-nosql}
+			\newpage			
 			\subsubsection{MongoDB}
 			\label{xmark-mongodb}
 			\input{includes/3/xmark-mongodb}
@@ -197,7 +218,8 @@
 			\label{xmark-couchbase}
 			\input{includes/3/xmark-couchbase}
 			\subsubsection{Rethinkdb}
-			\label{xmark-rethinkdb}		
+			\label{xmark-rethinkdb}
+			\input{includes/3/xmark-rethinkdb}		
 		\subsection{Benchmarking}
 		\subsection{Summary}
 	\newpage
@@ -230,5 +252,6 @@
 	\abbrev{HTML}{Hypertext Markup Language}
 	\abbrev{DOM}{Document Object Model}
 	\abbrev{IR}{Information Retrieval}
+	\abbrev{CB}{Couchbase Server}
 	
 \end{document}	

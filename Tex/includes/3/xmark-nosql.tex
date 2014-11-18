@@ -1,1 +1,71 @@
-A synthetic XMARK dataset consist of one(huge) record in tree structure~\cite{xmark/VIST}. However, As mentioned in \ref{xmark}, each subtree in schema, items, person, open\_auction , closed\_auction etc contains a large number of instances in the database which are indexed in it's own. In most of NoSQL system, this scenario is different, each instance has it's own index structure, the dataset cannot be in just a huge block.\todo{This should be elaborated, \textit{language should be imporve}}. As the data modeling of NoSQL do not match this single structure-encoded sequence, we breakdown it's tree structure into set of sub structure without losing the overall data and create index for each of them. As the data modeling from one NoSQL system is different to another unlike most of the XML databases, which have more similar\todo{???} comparison structure than NoSQL. So we need to define modeling for each of those database separately. 
+A synthetic XMARK dataset consist of one(huge) record in tree structure~\cite{xmark/VIST}. However, As mentioned in \ref{xmark}, each subtree in schema, \texttt{items}, \texttt{people}, \texttt{open\_auctions} , \texttt{closed\_auctiosn},\texttt{catgraph} and \texttt{categories} contains large number of instances in the database which are indexed. In most of NoSQL system, this scenario is different, each instance has it's own index structure, the dataset cannot be in just a huge block\todo{This should be elaborated, \textit{language should be imporve}}. As the data model of NoSQL do not match this single structure-encoded sequence, we breakdown it's tree structure into set of sub structure without losing the overall data and create index for each of them.
+Another thing, each NoSQL database has their own data model design, unlike most of the XML databases, which have more similar \todo{???}structure than NoSQL, we need to define model design for each of those database separately. 
+\\
+\\
+The generalized concept of XMark data to NoSQL database is given here, but it will be slightly different each of these databases.
+ All sub-structures \textit{items}, \textit{people}, \textit{open\_auctions}, \textit{closed\_auctions}, \textit{catgraph} and \textit{categories} are the basic for document fragmentation which store first group entities of XMark mentioned in ~\ref{xmark-dataset} \texttt{item}, \texttt{person},\texttt{open\_auction}, \texttt{closed\_auction} and \texttt{category} as individual documents respectively. In each of these document, one special field \textbf{doctype} is added to represent the value of the parent. for example, in case of person collection \textit{doctype} will be \textit{people}. This key value set will be also the part of document as shoown in Code 2\todo{ref:code:nosql-person0}. There is one exceptional case in for \textit{items}  which has \textbf{regions} as grandparent and name of different regions like \textit{asia}, \textit{europe} etc. as parent, the \textit{doctype} will be \textit{"items"} as others and one extra field need to be added to represent each region, so there will be one more field in case of \textit{item}.
+
+ \begin{fakeJSON}[label=json,caption=\textit{doctype} and \textit{regions} for item which has region name \textit{asia}]
+ 	"doctype":"items",
+ 	"regions":"asia"
+ \end{fakeJSON}
+ 
+ 
+ \label{code:nosql-person0}
+\begin{fakeJSON}[label=json,caption=General NoSQL data representation of XMARk data]
+	{
+		"id": "person0",
+		"doctype": "people",
+		"name": "Kasidit Treweek",
+		"emailaddress": "mailto:Treweek@cohera.com",
+		"phone": "+0 (645) 43954155",
+		"homepage": "http://www.cohera.com/~Treweek",
+		"creditcard": "9941 9701 2489 4716",
+		"profile": {
+			"income": 20186.59,
+			"interest": [{
+				"category": "category251"
+			}],
+			"education": "Graduate School",
+			"business": "No"
+		}
+		....
+	}
+\end{fakeJSON} 
+
+\begin{fakeXML}[label=xml,caption=XMARK data with of \textit{person0}]
+	
+	<person id="person0">
+	<name>Kasidit Treweek</name>
+	<emailaddress>mailto:Treweek@cohera.com</emailaddress>
+	<phone>+0 (645) 43954155</phone>
+	<homepage>http://www.cohera.com/~Treweek</homepage>
+	<creditcard>9941 9701 2489 4716</creditcard>
+	<profile income="20186.59">
+	<interest category="category251" />
+	<education>Graduate School</education>
+	<business>No</business>
+	</profile>
+	...
+	</person>
+\end{fakeXML} 
+
+\iffalse
+\begin{minipage}{.5\textwidth}
+	\begin{tikzpicture}[%
+	grow via three points={one child at (0.5,-0.7) and
+		two children at (0.5,-0.7) and (0.5,-1.4)},
+	edge from parent path={(\tikzparentnode.south) |- (\tikzchildnode.west)}]
+	\node {\{asfdasfd\}}
+	child { node [defi] {\textit{Schema\_ID}}}
+	child { node [json] {xs:attribute}
+		child { node [defi] {\textit{Attribute\_ID}}}
+		child { node [attribute] {@name}}
+		child { node [attribute] {@type}}
+		child { node [attribute] {@fixed}}
+		child { node [attribute] {@default}}
+	};
+	\end{tikzpicture}
+\end{minipage}
+
+\fi

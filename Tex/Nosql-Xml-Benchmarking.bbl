@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{www/xml}
 Tim Bray, Jean Paoli, C.~M. Sperberg-McQueen, Eve Maler, et~al.
@@ -35,8 +35,22 @@ Cong Yu and HV~Jagadish.
 \newblock In {\em Proceedings of the 32nd international conference on Very
   large data bases}, pages 319--330. VLDB Endowment, 2006.
 
+\bibitem{bson}
+BSON.
+\newblock Bson specification.
+
 \bibitem{nosql/comparision}
 Xiaoming Gao.
 \newblock Investigation and comparison of distributed nosql database systems.
+
+\bibitem{cb/brown2013developing}
+Martin~C Brown.
+\newblock {\em Developing with Couchbase Server}.
+\newblock " O'Reilly Media, Inc.", 2013.
+
+\bibitem{cb/ostrovsky2014pro}
+David Ostrovsky and Yaniv Rodenski.
+\newblock {\em Pro Couchbase Server}.
+\newblock Apress, 2014.
 
 \end{thebibliography}
