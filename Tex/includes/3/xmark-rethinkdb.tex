@@ -1,0 +1,8 @@
+RethinkDB~\cite{rethindb} is distributed database system to store  JSON documents that uses efficient query languages named ReQl which automatically parallelize queries in multiple machines. ReQL is based on three main principle: it is completely embedded with programming language, ReQL queries can be passed as pipeline from one stage to another to get required result that means it is possible to use series of simple queries together to perform complex operation. Finally, all the queries are executed in server without any intermediate network round trip required the server and clients. 
+\paragraph{Data Model}
+The relationships between documents can be can be created by embedded arrays of documents and linking document stores in multiple tables similar to MongoDB in ~\ref{xmark-mongodb}.
+Rethinkdb stores JSON documents with binary on disk serialization. RethinkDB implicitly support JSON data types: \texttt{object}, \texttt{array}, \texttt{number}, \texttt{boolean} and \texttt{null}. 
+RethinkDB allows embedded JavaScript expressions anywhere as part of query language
+
+\paragraph{Indexing}
+At the time of table creation, RethinkDB provide option of specifying the attributes that will serve as primary key, by default \texttt{id}  will serve if primary key attribute is not specified.
