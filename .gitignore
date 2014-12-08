@@ -4,6 +4,8 @@ test/*
 writing/*
 Tex/includes/first-page/author.tex
 Tex/bak.tex
+audio
+audio/*
 *.log
 *.lol
 *.toc
