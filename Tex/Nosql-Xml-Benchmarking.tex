@@ -130,17 +130,13 @@
 	\setcounter{page}{1}
 	\subsection{Motivation}
 		\label{motivation}
-			Few years of time XML~\cite{www/xml} was  \textit{de facto} data exchange format. It enabled people to do previously  which enabled people to do previously not that easy thing  at that time like exchange of content of Microsoft's office documents transfer through HTTP connections. But in recent years a bold transformation has been a foot in the world of Data exchange. The more light weight, less bandwidth consumer JSON~\cite{www/json} has been emerge as an alternative to the XML. Even though these two format are comparatively very different in case of features and functionality  and has their own pros and cons, the rise of JSON as key in data exchange format, new database technologies so called \textit{NoSQL}  are also emerges and getting success in their own way. The rate of new research in these system are increasing in recent years\todo{???? revise very well just need to change ....}
-			
-			A very flexible data model, horizontally scalable, distributed architecture and easy use of language and interfaces drive NoSQL on the way of popularity.  
+			Ten years ago XML~\cite{www/xml} was  \textit{de facto} data exchange format. But in recent years a big transformation has been going on in the world of data exchange. The more light weight, less bandwidth-consuming JSON~\cite{www/json} structure has been emerge as an alternative to the XML. Even though these two format are comparatively different regarding features and functionality  and even though both have their own pros and cons, the rise of JSON as new predominant data exchange format is clearly visible. As a result, new  \textit{NoSQL} database systems came along and proved to be successful and the rate of new research papers in this area also increasing.
 			......
 			....
 	
 	\subsection{Contribution}
 		%\input{includes/1/contribution}
-		The main contribution of this thesis is that it provides the necessary techniques and algorithms for migration of data from XML database to NoSQL databases.  More specifically, it will focus on document store databases like MongoDB, Couchbase and Rethinkdb as NoSQL and BaseX as XML Database. To complete this task it is necessary to understand general architecture and data model of each of these database as well and the Information Retrieval(\textit{IR}).
-		At the second part, conversion of XQuery Queries of XMark project to individual NoSQL database and their effect will be explained
-		......
+		The main contribution of this thesis is that it provides the necessary techniques and algorithms for migrating data from an XML database to NoSQL databases.  More specifically, it will focus on document store databases like MongoDB, Couchbase and Rethinkdb as NoSQL and BaseX as XML Database. To approach this challenge, it is first necessary to understand the general architecture and data model of each of these databases as well as the way how they are queried.
 		.....
 		
 	\subsection{Scope of Thesis}
@@ -148,18 +144,18 @@
 	.....
 	....
 	\subsection{Overview}
-		This thesis is divided into three main sections. The first section define the Techniques and necessary algorithms to convert XML  to JSON Data format. The second section will Systems and scope of work. On third section, we will see the performance and comparative analysis of each of NoSQL databases with XML database based on XMark Benchmarking project.
+		This thesis is divided into three main sections. Section~\ref{sec:two} defines the techniques and necessary algorithms to convert XML  to JSON. In Section~\ref{sec:three} we will present the analyzed Systems and scope of work. Section~\ref{sec:four} focuses on the performance tests and comparative analysis of each of the NoSQL databases with BaseX, based on the XMark benchmarking project.
 		
 		
 	\newpage
 	\section{Semi-structured data}
+	\label{sec:two}
 	%\section{Preliminaries}
 
 		%\subsection{Semi-structured data}
 		\subsubsection{XML and JSON}
 			%JSON documents consists of a number of key-value pair (also called attribute-value pair)
-			JSON and XML looks conceptually similar as they both text based markup language which are designed to represent data in human readable, interchangeable across multiple platform and parseable by common programming language. At the beginning they appear like quite similar, difference being in notations. But, in reality, they are fundamentally incompatible in their abstract data modeling~\cite{lee2011jxon}.
-			\textbf{what are the Problems???}
+			JSON and XML look conceptually similar as they both text based markup language, which are designed to represent data in human-readable form, exchangeable across multiple platforms and parseable by common programming language. When we look at them first, they appear to be quite similar, with difference only in their syntax. But it turns out that they are fundamentally incompatible, as we will see in the following section~\cite{lee2011jxon}.
 			\paragraph{Document node}
 			\paragraph{Anonymous values}
 			\paragraph{Arrays}
@@ -170,7 +166,12 @@
 			\todo{ALSO definition of XML and XSD is needed here}
 			\\
 			\\
-			A JSON document consists of numbers of key-value pair which is unordered set of name/value named \texttt{Objects} and order list of values realized as \texttt{Array}.\todo{??? need to explain object and array}
+			A JSON document consists of two data structures: 
+			\begin{itemize}
+					\item Objects, which are numbers of key value pairs 
+					\item Arrays, which are an ordered list of values
+				content...
+			\end{itemize}
 			A JSON value can be Object, Array, number, string, \texttt{true}, \texttt{false} and \texttt{null}.
 		\subsection{Mapping}
 			\subsubsection{Friendly}
@@ -191,6 +192,7 @@
 	%\section{Related work}
 	\newpage
 	\section{System/Environment}
+	\label{sec:three}
 		\subsection{BaseX}
 			%\input{includes/2/basex}
 		\subsection{MongoDB}
@@ -203,6 +205,7 @@
 		\subsection{Summary}
 	\newpage
 	\section{Performance/Experiments}
+	\label{sec:four}
 		\subsection{XMark}
 		\label{xmark}
 			\input{includes/3/xmark}
