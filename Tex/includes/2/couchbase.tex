@@ -1,0 +1,20 @@
+ Couchbase Server is NoSQL database that can be used both as a key-value store as well as document store system. As key-value store, it is able to store  multiple data type such as strings, numbers, datetime, and booleans as well as arbitrary binary data. The key-value generally treated as opaque Binary Large Object(BLOB) and don't try to parse it. For document store, data need to be store in the valid JSON format.\todo{
+  document database system with flexible data model and easily scalable concept~\cite{cb/brown2013developing}}. Data in Couhbase Server are stored in logical unit called Buckets. Buckets are isolated to each other which also have their own RAM quota and replica settings. These buckets can be technically compare as \texttt{database} in Mongodb or other RDBMS. Couchbase recommends as few as possible number of buckets even it is possible to have up to ten bucket in a single cluster system.These buckets can contains theoretically any type of data. All data type other than JSON can be retrieve only by their key. So it is important to check meta type of data stored in a single document before retrieval. 
+%In contrast to Mongodb, Couchbase Server don't have concept of collection, documents are separated by the their \texttt{type}.
+\paragraph{Metadata}
+For every value stored in database, Couchbase Server generate meta information that is associated with the document~\cite{cb/ostrovsky2014pro}. 
+	\subparagraph{Expiration}
+		The Time to Live(TTL) also named expiration time is the life time of the document. By default it is 0 which indicates it will never expire, also can be set as Unix epoch time after which document is removed. e.g. The maximum number of seconds you can specify are the seconds in a month, namely 2592000(30 x 24 x 60 x 60). Couchbase Server will remove the item after given number of second it stores. 
+	\subparagraph{Check-and-Set(CAS)}
+		The CAS value is 64-bit integer that is updated by server when associated item is modified and is a method of optimistic locking~\cite{halici1991optimistic}. It enables to update information only if unique identifier matches the identifier of the document that need to be update. CAS is used to manage concurrency when multiple client attempts to update the same document simultaneously. 
+	\subparagraph{Flags} 
+		Flags are  as 32 bit integer and are set of SDK specific use for SDK specific need. For example, format in which data is serialize or data type of the object being stored. 
+	\\ 
+	\\
+In addition of expiration, CAS and flags, three other meta store at the time of document creation, \texttt{Id}, the document's key is saved as part of metadata. \texttt{type} is the type of document whether it is JSON for all valid JSON documents and \texttt{Base64} for all other than JSON type is being saved as Base64 encoded string.
+\paragraph{Document key}
+Every value in Couchbase Server has simple or complex \todo{explain simple or complex}  unique key. unlink Mongodb CB don't generate key automatically, it is up to the application creating the data to supply a unique string value up to 250 characters as key for each document~\ref{cb/ostrovsky2014pro}.
+%In case of XMark data each \texttt{id} attributes of  \texttt{item}, \texttt{person}, \texttt{open\_auction}, \texttt{category} represent as key. In case of  \texttt{closed\_auction} and  \texttt{edge} key can be manually generated. 
+\paragraph{Document design}
+
+\paragraph{Bucket and vBucket}

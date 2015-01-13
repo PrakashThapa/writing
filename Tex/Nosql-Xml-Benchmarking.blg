@@ -1,11 +1,17 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: Nosql-Xml-Benchmarking.aux
-The style file: unsrt.bst
+The style file: alpha.bst
 Database file #1: includes/reference.bib
 Warning--entry type for "bson" isn't style-file defined
 --line 78 of file includes/reference.bib
+I was expecting a `,' or a `}'---line 115 of file includes/reference.bib
+ :  
+ :  url    = {http://tools.ietf.org/html/rfc4627/},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
 Warning--I didn't find a database entry for "www/json"
-Warning--empty institution in xmark/mlynkova2008xml
-Warning--empty year in xmark/mlynkova2008xml
+Warning--I didn't find a database entry for "rethindb"
 Warning--empty journal in nosql/comparision
 Warning--empty year in nosql/comparision
-(There were 6 warnings)
+Warning--empty institution in xmark/mlynkova2008xml
+Warning--empty year in xmark/mlynkova2008xml
+(There was 1 error message)

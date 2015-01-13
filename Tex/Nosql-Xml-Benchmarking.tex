@@ -154,6 +154,8 @@
 
 		%\subsection{Semi-structured data}
 		\subsubsection{XML and JSON}
+			XML, by definition a textual markup language where data elements are ordered by nature: \textit{string} is core data type from which richer data types e.g., integers, floats and even user-defined abstract data types are derived~\cite{xmark/original}.
+			
 			%JSON documents consists of a number of key-value pair (also called attribute-value pair)
 			JSON and XML look conceptually similar as they both text based markup language, which are designed to represent data in human-readable form, exchangeable across multiple platforms and parseable by common programming language. When we look at them first, they appear to be quite similar, with difference only in their syntax. But it turns out that they are fundamentally incompatible, as we will see in the following section~\cite{lee2011jxon}.
 			\paragraph{Document node}
@@ -166,11 +168,11 @@
 			\todo{ALSO definition of XML and XSD is needed here}
 			\\
 			\\
-			A JSON document consists of two data structures: 
+			A JSON or JavaScript Object Notation is programming language model. It is minimal textual and a subset of JavaScript. JSON document consists of two data structures: 
 			\begin{itemize}
-					\item Objects, which are numbers of key value pairs 
-					\item Arrays, which are an ordered list of values
-				content...
+					\item Objects, an unordered collection of name-value pair that are encapsulated by curly braces \{ and \}. The key is a string encapsulated in double quotes and must followed by a column(:) to it's value. The key must be unique for each object.
+					%TODO:   which are numbers of key value pairs 
+					\item Arrays, which are an ordered list of values 
 			\end{itemize}
 			A JSON value can be Object, Array, number, string, \texttt{true}, \texttt{false} and \texttt{null}.
 		\subsection{Mapping}
@@ -180,13 +182,19 @@
 			\subsubsection{Mapping approaches}
 			\subsubsection{Summary}
 		\subsection{Translation from XML to JSON}
-			
+		\subsection{NoSQL database}
+			\subsubsection{Different Families of NoSQL Databases}
+			According to \cite{nosql:org}, there are more than 150 NoSQL databases. Based on data model, these  systems are classified in four different categories:
+			\paragraph{Key/Value store}
+				The Data representation of key-value stores are based on attribute pair, the data model is expressed as collection of <\textit{key},\textit{value}> tuples. The key is unique and the query operation on data can be uniquely performed by a key. There are not alternative way to access or modify data without key.  DynamoDB, Riak, Redis are some examples of key-value stores.
+			\paragraph{Document store}
+				The document store database are based on semi-structured data model, where unique store a values that contains a tree like structure called \textit{documents}. Document store encapsulate key-value pair in JSON or in JSON like documents\cite{hecht2011nosql}. In document store database, data can be access by using key or specific value. 
+			\paragraph{Column family store}
+			\paragraph{Graph database}
+				Graph databases represent data as graph that means in the form of nodes and edges like in social network. They store entities and relationship between these entities. Neo4J and OrientDB are two example of these database.
+		\subsubsection{Querying NoSQL database}
 		\subsection{XML Database}
 			\subsubsection{XML Query Language}
-		\subsection{NoSQL database}
-			\subsubsection{Key/Value storage}
-			\subsection{document oriented database}
-		\subsubsection{Querying NoSQL database}
 	%\newpage
 	%this section have to move to in conclusion and future work
 	%\section{Related work}
@@ -196,12 +204,12 @@
 		\subsection{BaseX}
 			%\input{includes/2/basex}
 		\subsection{MongoDB}
-			%\input{includes/2/mongodb}
+			\input{includes/2/mongodb}
 		\label{couchbase-general}
 		\subsection{Couchbase Server}
-			%\input{includes/2/couchbase}
+			\input{includes/2/couchbase}
 		\subsection{Rethinkdb}		
-			%\input{includes/2/rethinkdb}
+			\input{includes/2/rethinkdb}
 		\subsection{Summary}
 	\newpage
 	\section{Performance/Experiments}
@@ -235,7 +243,7 @@
 	\label{s.future}
 	storing in the memory
 	\newpage
-	\bibliographystyle{unsrt}
+	\bibliographystyle{alpha}
 	\bibliography{includes/reference}
 	\newpage
 	\listoffigures
@@ -255,6 +263,10 @@
 	\abbrev{HTML}{Hypertext Markup Language}
 	\abbrev{DOM}{Document Object Model}
 	\abbrev{IR}{Information Retrieval}
-	\abbrev{CB}{Couchbase Server}
+	\abbrev{CB}{Couchbase Server}	
+	\abbrev{SDK}{Software Development Kit}
+	\abbrev{CAS}{Check-and-Set}
+	\abbrev{SDK}{ Software Development Kit}
+	
 	
 \end{document}	

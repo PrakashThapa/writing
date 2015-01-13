@@ -1,56 +1,81 @@
-\begin{thebibliography}{10}
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{BPSM{\etalchar{+}}08}
 
-\bibitem{www/xml}
+\bibitem[BPSM{\etalchar{+}}08]{www/xml}
 Tim Bray, Jean Paoli, C.~M. Sperberg-McQueen, Eve Maler, et~al.
 \newblock {Extensible Markup Language (XML) 1.0 (Fifth Edition)}.
 \newblock http://www.w3.org/TR/xml, November 2008.
 
-\bibitem{lee2011jxon}
+\bibitem[Bro13]{cb/brown2013developing}
+Martin~C Brown.
+\newblock {\em Developing with Couchbase Server}.
+\newblock " O'Reilly Media, Inc.", 2013.
+
+\bibitem[BSO]{bson}
+BSON.
+\newblock Bson specification.
+
+\bibitem[Gao]{nosql/comparision}
+Xiaoming Gao.
+\newblock Investigation and comparison of distributed nosql database systems.
+
+\bibitem[HD91]{halici1991optimistic}
+Ugur Halici and Asuman Dogac.
+\newblock An optimistic locking technique for concurrency control in
+  distributed databases.
+\newblock {\em Software Engineering, IEEE Transactions on}, 17(7):712--724,
+  1991.
+
+\bibitem[HJ11]{hecht2011nosql}
+Robin Hecht and S~Jablonski.
+\newblock Nosql evaluation.
+\newblock In {\em International Conference on Cloud and Service Computing},
+  2011.
+
+\bibitem[Lee11]{lee2011jxon}
 David Lee.
 \newblock Jxon: an architecture for schema and annotation driven json/xml
   bidirectional transformations.
 \newblock In {\em Proceedings of Balisage: The Markup Conference}, 2011.
 
-\bibitem{xmark/original}
+\bibitem[Ml{\`y}]{xmark/mlynkova2008xml}
+Irena Ml{\`y}nkov{\'a}.
+\newblock Xml benchmarking: Limitations and opportunities.
+\newblock Technical report.
+
+\bibitem[OR14]{cb/ostrovsky2014pro}
+David Ostrovsky and Yaniv Rodenski.
+\newblock {\em Pro Couchbase Server}.
+\newblock Apress, 2014.
+
+\bibitem[Ore10]{orend2010analysis}
+Kai Orend.
+\newblock Analysis and classification of nosql databases and evaluation of
+  their ability to replace an object-relational persistence layer.
+\newblock {\em Architecture. Citeseer}, page 100, 2010.
+
+\bibitem[Sen15]{nosql:org}
+Mark Senn.
+\newblock {\em NOSQL Databases. {@ONLINE} Nosql-database.org}, 2015 (accessed
+  January 10, 2015).
+
+\bibitem[SWK{\etalchar{+}}02]{xmark/original}
 Albrecht Schmidt, Florian Waas, Martin Kersten, Michael~J Carey, Ioana
   Manolescu, and Ralph Busse.
 \newblock Xmark: A benchmark for xml data management.
 \newblock In {\em Proceedings of the 28th international conference on Very
   Large Data Bases}, pages 974--985. VLDB Endowment, 2002.
 
-\bibitem{xmark/mlynkova2008xml}
-Irena Ml{\`y}nkov{\'a}.
-\newblock Xml benchmarking: Limitations and opportunities.
-\newblock Technical report.
-
-\bibitem{xmark/VIST}
+\bibitem[WPFY03]{xmark/VIST}
 Haixun Wang, Sanghyun Park, Wei Fan, and Philip~S. Yu.
 \newblock Vist: A dynamic index method for querying xml data by tree
   structures.
 \newblock In {\em In SIGMOD}, pages 110--121, 2003.
 
-\bibitem{xmark/schema-sumerize}
+\bibitem[YJ06]{xmark/schema-sumerize}
 Cong Yu and HV~Jagadish.
 \newblock Schema summarization.
 \newblock In {\em Proceedings of the 32nd international conference on Very
   large data bases}, pages 319--330. VLDB Endowment, 2006.
-
-\bibitem{bson}
-BSON.
-\newblock Bson specification.
-
-\bibitem{nosql/comparision}
-Xiaoming Gao.
-\newblock Investigation and comparison of distributed nosql database systems.
-
-\bibitem{cb/brown2013developing}
-Martin~C Brown.
-\newblock {\em Developing with Couchbase Server}.
-\newblock " O'Reilly Media, Inc.", 2013.
-
-\bibitem{cb/ostrovsky2014pro}
-David Ostrovsky and Yaniv Rodenski.
-\newblock {\em Pro Couchbase Server}.
-\newblock Apress, 2014.
 
 \end{thebibliography}

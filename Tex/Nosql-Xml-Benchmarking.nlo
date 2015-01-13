@@ -1,12 +1,15 @@
-\nomenclatureentry{aXML@[{XML}]\begingroup Extensible Markup Language\nomeqref {0}|nompageref}{17}
-\nomenclatureentry{aJSON@[{JSON}]\begingroup JavaScript Object Notation\nomeqref {0}|nompageref}{17}
-\nomenclatureentry{aVM@[{VM}]\begingroup Virtual Machine\nomeqref {0}|nompageref}{17}
-\nomenclatureentry{aJVM@[{JVM}]\begingroup Java Virtual Machine\nomeqref {0}|nompageref}{17}
-\nomenclatureentry{aIPC@[{IPC}]\begingroup Inter-process Communication\nomeqref {0}|nompageref}{17}
-\nomenclatureentry{aSDK@[{SDK}]\begingroup Software Development Kit\nomeqref {0}|nompageref}{17}
-\nomenclatureentry{aGUI@[{GUI}]\begingroup Graphical User Interface\nomeqref {0}|nompageref}{17}
-\nomenclatureentry{aXML@[{XML}]\begingroup Extensible Markup Language\nomeqref {0}|nompageref}{17}
-\nomenclatureentry{aHTML@[{HTML}]\begingroup Hypertext Markup Language\nomeqref {0}|nompageref}{17}
-\nomenclatureentry{aDOM@[{DOM}]\begingroup Document Object Model\nomeqref {0}|nompageref}{17}
-\nomenclatureentry{aIR@[{IR}]\begingroup Information Retrieval\nomeqref {0}|nompageref}{17}
-\nomenclatureentry{aCB@[{CB}]\begingroup Couchbase Server\nomeqref {0}|nompageref}{17}
+\nomenclatureentry{aXML@[{XML}]\begingroup Extensible Markup Language\nomeqref {0}|nompageref}{18}
+\nomenclatureentry{aJSON@[{JSON}]\begingroup JavaScript Object Notation\nomeqref {0}|nompageref}{18}
+\nomenclatureentry{aVM@[{VM}]\begingroup Virtual Machine\nomeqref {0}|nompageref}{18}
+\nomenclatureentry{aJVM@[{JVM}]\begingroup Java Virtual Machine\nomeqref {0}|nompageref}{18}
+\nomenclatureentry{aIPC@[{IPC}]\begingroup Inter-process Communication\nomeqref {0}|nompageref}{18}
+\nomenclatureentry{aSDK@[{SDK}]\begingroup Software Development Kit\nomeqref {0}|nompageref}{18}
+\nomenclatureentry{aGUI@[{GUI}]\begingroup Graphical User Interface\nomeqref {0}|nompageref}{18}
+\nomenclatureentry{aXML@[{XML}]\begingroup Extensible Markup Language\nomeqref {0}|nompageref}{18}
+\nomenclatureentry{aHTML@[{HTML}]\begingroup Hypertext Markup Language\nomeqref {0}|nompageref}{18}
+\nomenclatureentry{aDOM@[{DOM}]\begingroup Document Object Model\nomeqref {0}|nompageref}{18}
+\nomenclatureentry{aIR@[{IR}]\begingroup Information Retrieval\nomeqref {0}|nompageref}{18}
+\nomenclatureentry{aCB@[{CB}]\begingroup Couchbase Server\nomeqref {0}|nompageref}{18}
+\nomenclatureentry{aSDK@[{SDK}]\begingroup Software Development Kit\nomeqref {0}|nompageref}{18}
+\nomenclatureentry{aCAS@[{CAS}]\begingroup Check-and-Set\nomeqref {0}|nompageref}{18}
+\nomenclatureentry{aSDK@[{SDK}]\begingroup  Software Development Kit\nomeqref {0}|nompageref}{18}

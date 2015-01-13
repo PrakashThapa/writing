@@ -1,21 +1,20 @@
-A synthetic XMARK dataset consist of one(huge) record in tree structure~\cite{xmark/VIST}. However, As mentioned in \ref{xmark}, each subtree in schema, \texttt{items}, \texttt{people}, \texttt{open\_auctions} , \texttt{closed\_auctiosn},\texttt{catgraph} and \texttt{categories} contains large number of instances in the database which are indexed. In most of NoSQL system, this scenario is different, each instance has it's own index structure, the dataset cannot be in just a huge block\todo{This should be elaborated, \textit{language should be imporve}}. As the data model of NoSQL do not match this single structure-encoded sequence, we breakdown it's tree structure into set of sub structure without losing the overall data and create index for each of them.
-Another thing, each NoSQL database has their own data model design, unlike most of the XML databases, which have more similar \todo{???}structure than NoSQL, we need to define model design for each of those database separately. 
+A synthetic XMARK dataset consist of one(huge) record in tree structure~\cite{xmark/VIST}. However, as already mentioned in \ref{xmark}, each subtree in schema, \texttt{items}, \texttt{people}, \texttt{open\_auctions} , \texttt{closed\_auctiosn},\texttt{catgraph} and \texttt{categories} contains large number of instances in the database which are indexed. In most of NoSQL system, this scenario is different, each instance has it's own index structure, the dataset cannot be in just a huge block. As the data model of NoSQL do not match this single structure-encoded sequence, we breakdown it's tree structure into set of sub-structure without losing the overall data and create index for each of them.
+Beside this, each NoSQL database has their own data model design, unlike most of the XML databases, which have more similar \todo{???}structure than NoSQL, we need to define model design for each of those databases separately. 
 \\
 \\
-The generalized concept of XMark data to NoSQL database is given here, but it will be slightly different each of these databases.
- All sub-structures \textit{items}, \textit{people}, \textit{open\_auctions}, \textit{closed\_auctions}, \textit{catgraph} and \textit{categories} are the basic for document fragmentation which store first group entities of XMark mentioned in ~\ref{xmark-dataset} \texttt{item}, \texttt{person},\texttt{open\_auction}, \texttt{closed\_auction} and \texttt{category} as individual documents respectively. In each of these document, one special field \textbf{doctype} is added to represent the value of the parent. for example, in case of person collection \textit{doctype} will be \textit{people}. This key value set will be also the part of document as shoown in Code 2\todo{ref:code:nosql-person0}. There is one exceptional case in for \textit{items}  which has \textbf{regions} as grandparent and name of different regions like \textit{asia}, \textit{europe} etc. as parent, the \textit{doctype} will be \textit{"items"} as others and one extra field need to be added to represent each region, so there will be one more field in case of \textit{item}.
+The generalized concept of XMark data to NoSQL database is given here, but it might be slightly  different each of them.
+ All sub-structures \textit{items}, \textit{people}, \textit{open\_auctions}, \textit{closed\_auctions}, \textit{catgraph} and \textit{categories} are the basic for document fragmentation which store first group entities of XMark mentioned in ~\ref{xmark-dataset} \texttt{item}, \texttt{person},\texttt{open\_auction}, \texttt{closed\_auction} and \texttt{category} as individual documents respectively. In each of these document, one special field \textbf{type} is added to represent the value of the parent. for example, in case of person collection \textit{type} will be \textit{people}. This key value set will be also the part of document as shown in Code 2\todo{ref:code:nosql-person0}. There is one exceptional case for \textit{items}  which has \textbf{regions} as grandparent and name of different regions like \textit{asia}, \textit{europe} etc. as parent, the \textit{type} will be \textit{"items"} as others and one extra field need to be added to represent each region, so there will be one more field in case of \textit{item}.
 
  \begin{fakeJSON}[label=json,caption=\textit{doctype} and \textit{regions} for item which has region name \textit{asia}]
- 	"doctype":"items",
+ 	"type":"items",
  	"regions":"asia"
  \end{fakeJSON}
- 
- 
+  
  \label{code:nosql-person0}
 \begin{fakeJSON}[label=json,caption=General NoSQL data representation of XMARk data]
 	{
 		"id": "person0",
-		"doctype": "people",
+		"type": "people",
 		"name": "Kasidit Treweek",
 		"emailaddress": "mailto:Treweek@cohera.com",
 		"phone": "+0 (645) 43954155",
@@ -29,7 +28,6 @@ The generalized concept of XMark data to NoSQL database is given here, but it wi
 			"education": "Graduate School",
 			"business": "No"
 		}
-		....
 	}
 \end{fakeJSON} 
 
@@ -46,7 +44,6 @@ The generalized concept of XMark data to NoSQL database is given here, but it wi
 	<education>Graduate School</education>
 	<business>No</business>
 	</profile>
-	...
 	</person>
 \end{fakeXML} 
 

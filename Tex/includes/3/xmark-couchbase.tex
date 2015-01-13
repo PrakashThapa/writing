@@ -1,18 +1,4 @@
-\todo{This section has to move to \ref{couchbase-general}}
-Couchbase Server is NoSQL document database system with flexible data model and easily scalable concept~\cite{cb/brown2013developing}. Data in Couhbase Server are stored in logical unit called Buckets. Buckets are isolated to each other which also have their own RAM quota and replica settings. These buckets can be technically compare as \texttt{database} in Mongodb or other RDBMS. Couchbase recommends as few as possible number of buckets even it is possible to have up to ten bucket in a single cluster system.These buckets can contains theoretically any type of data(??). All data type other than JSON can be retrieve only by their key. So it is important to check meta type of data stored in a single document before retrieval. 
-In contrast to Mongodb, Couchbase Server don't have concept of collection, documents are separated by the their \texttt{doctype}.
-\paragraph{Metadata}
-For every value stored in database, Couchbase Server generate create metadata that is associated to with the document~\cite{cb/ostrovsky2014pro}. 
-	\subparagraph{Expiration}
-	\subparagraph{Check-and-Set(CAS)}
-	\subparagraph{Flags} 
-	\todo{explain in detail}
-	\\ 
-	\\
-In addition of expiration, CAS and flags, three other meta store at the time of document creation, \texttt{Id}, the document's key is saved as part of metadata. \texttt{type} is the type of document whether it is JSON for all valid JSON documents and \texttt{Base64} for all other than JSON type is being saved as Base64 encoded string.
-\paragraph{Document key}
-Every value in Couchbase Server has simple or complex \todo{explain simple or complex}  unique key. unlink Mongodb CB don't generate key automatically, it is up to the application creating the data to supply a unique string value up to 250 characters as key for each document~\ref{cb/ostrovsky2014pro}.
-%In case of XMark data each \texttt{id} attributes of  \texttt{item}, \texttt{person}, \texttt{open\_auction}, \texttt{category} represent as key. In case of  \texttt{closed\_auction} and  \texttt{edge} key can be manually generated. 
+
 \paragraph{Document design}
 For Couchbase Server, there is no need to change any structure of XMark NoSQL representation as mentioned in \ref{xmark-nosql} as there is no concept of fragmentation like in \textit{collections} of Mongodb or \textit{tables} in Rethinkdb. The documents are identified by \textit{doctype}. All of these documents are inserted in a single Bucket with \textit{id} as key. For those documents that doesn't have id field, will be manually generated.
 
